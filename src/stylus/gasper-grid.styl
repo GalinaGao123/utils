@@ -1,0 +1,21 @@
+@require 'lib/functions'
+
+.gasper-grid
+	display		block
+	width		100%
+	&:before
+	&:after
+		content		""
+		display		table
+	
+	&:after
+		clear		both
+
+
+
+
+break_points = 600px 1200px
+types = s m l
+max = 5
+
+build(break_points, types, max)
