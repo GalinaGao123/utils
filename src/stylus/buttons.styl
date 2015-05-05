@@ -1,0 +1,37 @@
+@keyframes shake
+  25%
+    transform   translate(-10px)
+  75%
+    transform   translate(10px)
+  100%
+    transform   translate(0)
+
+@keyframes pop
+  50%
+    transform   scale(1.5, 1.5)
+    opacity     0.5
+  100%
+    transform   scale(1, 1)
+    opacity     1
+
+button(w, h)
+    display inline-block
+    width   w
+    height  h
+    color   #f3f7ff
+    background-color #76c876
+    text-align  center
+    line-height @height
+    overflow hidden
+    border-radius 15px
+    cursor  pointer
+
+.button
+  &-shake
+    button(100px, 50px)
+    &:hover
+      -webkit-animation shake 0.2s linear
+  &-pop
+    button(100px, 50px)
+    &:hover
+      -webkit-animation pop 0.1s linear
