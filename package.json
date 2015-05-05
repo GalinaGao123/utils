@@ -1,7 +1,7 @@
 {
-  "name": "gasper-grid",
+  "name": "gasper-utils",
   "version": "0.0.1",
-  "description": "gasper responsive grid",
+  "description": "gasper's utils at loweprofero",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
