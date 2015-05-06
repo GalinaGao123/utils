@@ -5,14 +5,15 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	connect = require('gulp-connect'),
 	jade = require('gulp-jade'),
-	stylus = require('gulp-stylus');
+	stylus = require('gulp-stylus'),
+	nib = require('nib');
 
 
 // Path Variables
 
 var src_path = 'src/',
 	dist_path = 'dist/',
-	
+
 	need_compile_jade    = src_path + 'jade/*.jade',
 	need_watch_jade      = src_path + 'jade/**/*.jade',
 	compile_jade_to_path = dist_path,
@@ -20,7 +21,7 @@ var src_path = 'src/',
 	need_compile_stylus    = src_path + 'stylus/*.styl',
 	need_watch_stylus      = src_path + 'stylus/**/*.styl',
 	compile_stylus_to_path = dist_path + 'css/',
-	
+
 	need_reload_html = dist_path + '*.html';
 	need_reload_css  = dist_path + 'css/*.css'
 
@@ -70,7 +71,10 @@ gulp.task('stylus', function () {
 					this.emit('end');
 				}
 			}))
-			.pipe(stylus())
+			.pipe(stylus({
+				use: [nib()],
+				import: ['nib']
+			}))
 			.pipe(gulp.dest(compile_stylus_to_path));
 });
 
@@ -109,15 +113,3 @@ gulp.task('watch', ['compile_all'], function () {
 // Default task
 
 gulp.task('default', ['server']);
-
-
-
-
-
-
-
-
-
-
-
-
