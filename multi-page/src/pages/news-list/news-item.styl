@@ -1,0 +1,66 @@
+.news-item
+  clearfix()
+  box-sizing border-box
+  border 1px solid #ededed
+  margin-bottom 30px
+  +media_s()
+    margin-bottom 15px
+  .text-holder
+    float right
+    width 50%
+    box-sizing border-box
+    padding 30px 30px 0 30px
+    +media_m()
+      padding 20px 20px 0 20px
+    +media_s()
+      float none
+      width 100%
+      padding 15px
+    .title
+      font-size 25px
+      +media_m()
+        margin-bottom 20px
+      +media_s()
+        margin-bottom 15px
+    .brief
+      margin 20px 0
+      line-height 1.5em
+      max-height 3em
+      +media_m()
+        display none
+      +media_s()
+        margin 15px 0
+        display none
+  .img-holder
+    float right
+    width 50%
+    +media_s()
+      float none
+      width 100%
+
+  &.simple
+    .text-holder
+      float none
+      width 100%
+      padding 30px
+      +media_m()
+        padding 20px
+      +media_s()
+        padding 15px
+      .brief
+        max-height 6em
+        +media_m()
+          display block
+        +media_s()
+          display block
+
+  &.date
+    .text-holder
+      .title
+        margin-bottom 0
+      .date
+        font-size 22px
+        +media_m()
+          margin-bottom 20px
+        +media_s()
+          margin-bottom 15px

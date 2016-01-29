@@ -1,0 +1,45 @@
+extends ../../common/html/layout
+
+block content
+  +banner-slider()
+  h1.display-none cfa
+  +color-block('英才<br>故事')(class='compass')
+    - var n = 0;
+    while n++ < 2
+      .responsive-img
+        img.desktop(src='http://placehold.it/720x360' alt="cfa")
+        img.mobile(src='http://placehold.it/800x500' alt="cfa")
+      .content-wrap
+        h3.colored-text Josh Wu, CFA
+        p.job 领英中国财务总监
+        .colored-text.quote
+          sup “
+          | 长期来看，变现问题是我工作的一项重中之重，因为天下没有免费的午餐。
+          sup ”
+        p.
+          《CFA协会职业指南（2015-2016年）》能帮你掌握各项相关技能，成为出色的投资从业者。
+          在这本职业指南中，投资管理专家将为您提供专业指导，人力资源经理将分享各种求职技巧。
+          此外，您还将获悉如何成功管理职业生涯的秘诀。珍惜现在，抓住机遇，让自己的事业更上
+          一层。
+        //- a.button.colored-btn(href='#' target='_blank') 阅读更多 >
+
+  +color-block('独家<br>专访')(class='vip opposite')
+    .video
+      div(style="display: block; position: relative; max-width: 100%;")
+        div(style="display: block; padding-top: 56.25%;")
+          iframe(frameborder="0" src="//players.brightcove.net/1183701590001/8f53e7fc-25e7-4ea7-904d-1f59e50b3bf3_default/index.html?videoId=4029214589001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;")
+    .content-wrap
+      h3.name 詹伟基，CFA
+      p.job 香港财经分析师学会前任会长
+      p 于金融行业从业25年之久，詹伟基曾在不同国家，多间投资银行内担任不同角色。
+      p 他在CFA课程中有最深体会的是道德操守及终身学习的重要性。
+      p 他相信，获得CFA特许资格认证是迈向成功重要的一步。
+    .video
+      div(style="display: block; position: relative; max-width: 100%;")
+        div(style="display: block; padding-top: 56.25%;")
+          iframe(frameborder="0" src="http://players.brightcove.net/1183701590001/8f53e7fc-25e7-4ea7-904d-1f59e50b3bf3_default/index.html?videoId=4304532870001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;")
+    .content-wrap
+      h3.name 黄凡，CFA
+      p.job 国际大型全能金融机构中国区财富管理业务负责人
+      p 拥有长达20年行业经验的黄凡认为，金融行业的规范发展，离不开从业人员良好的职业操守以及优秀的专业知识和技能。
+      p 他相信，更多CFA持证人加入国内行业，将对行业规范和发展大有帮助。

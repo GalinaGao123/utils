@@ -1,0 +1,88 @@
+include card
+extends ../../common/html/layout
+
+block content
+  h1.display-none cfa
+  +banner-slider()
+  
+  +color-block('最新<br>动态')(class="news")
+    +normal-card()
+    +normal-card()
+    +normal-card()
+    
+  +color-block('CFA<br>点评', '更多 +')(class='opposite comment')
+    +subtitle-card()(class='opposite')
+    +subtitle-card()(class='opposite')
+
+  +color-block('关于<br>CFA<br>协会<br>')(class="about")
+    .intro
+      p CFA协会是由全球顶尖投资专业人士组成的非营利性专业机构。自1947年成立以来，CFA对投资知识、专业准则及道德设立了全球性的标准，得到金融投资行业的广泛认知和高度认可。《经济学人》杂志于2006年将CFA专业资格比喻成投资专才的“黄金标准”。
+      p 在世界经济一体化的今天，中国金融投资行业的高速发展离不开国际化的金融专才。进入中国以来，CFA协会始终致力于帮助本土金融企业培养、发掘优秀人才，提供优质行业资源，增强投资团体与业内人才间的紧密联系，为中国金融市场改革
+      a(href="#").button.colored-btn 进一步了解 >
+    .video-player
+      div(style="display: block; position: relative; max-width: 100%;")
+        div(style="display: block; padding-top: 75%;")
+          iframe(frameborder="0" src="//players.brightcove.net/1183701590001/8f53e7fc-25e7-4ea7-904d-1f59e50b3bf3_default/index.html?videoId=4397541782001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;")
+    .animate-block
+      .info
+        .num.colored-text
+          .big-size 130,000+
+        p 培养超过130,000位<br>全球投资专业人士
+      .info
+        .num.colored-text
+          .big-size 2008
+        p 2008年， CFA协会首次在中国成立办事处
+      .info
+        .num.colored-text
+          .big-size 5,000+
+        p 国内超过5,000位<br>资深投资人士加入CFA协会   
+  +color-block('CFA<br>认证')(class='opposite identification')
+    +no-image-card()
+    +no-image-card()
+    +no-image-card()
+
+  +color-block('众观<br>CFA<br>协会')(class='public-view')    
+    #public-view-slider
+      .item
+        .img-holder
+          img(src="http://placehold.it/800x350?text=1" alt="cfa")
+        .text-holder.content-wrap
+          .person.colored-text
+            p.name 邵征，CFA
+            p.job CFA协会理事会理事
+          .words
+            sup.colored-text.quote “
+            | &nbsp;作为中国人，我了解教育的重要性。接受良好的教育是每个人对自己最好的投资。全球各地的CFA考试内容一致，不仅贴近市场发展，而且定期更新&nbsp;
+            sup.colored-text.quote ”
+
+      .item
+        .img-holder
+          img(src="http://placehold.it/800x350?text=2" alt="cfa")
+        .text-holder.content-wrap
+          .person.colored-text
+            p.name 吴旸, CFA
+            p.job 
+              | 中国大陆首位CFA特许资格认证持有人
+              br
+              | Applied Strategy Ltd.
+              br
+              | 创办人兼行政总裁
+          .words
+            sup.colored-text.quote “
+            | &nbsp;我希望看到中国有100,000个CFA特许资格认证持有人，我也希望CFA协会讲授的课程内容能在中国得到充分执行。&nbsp;
+            sup.colored-text.quote ”
+
+      .item
+        .img-holder
+          img(src="http://placehold.it/800x350?text=3" alt="cfa")
+        .text-holder.content-wrap
+          .person.colored-text
+            p.name 邵征，CFA
+            p.job CFA协会理事会理事
+          .words
+            sup.colored-text.quote “
+            | &nbsp;对企业而言，员工能够代表公司与客户维护良好的客户关系，是极为重要的对企业而言，员工能够代表公司与客户维护良好的客户关系，是极为重要的对企业而言，员工能够代表公司与客户维护良好的客户关系，是极为重要的对企业而言，员工能够代表公司与客户维护良好的客户关系，是极为重要的，除了需要专业服务水平之外，‘信任’更是员工与客户之间的共同语言，而CFA，为这一切做了充足的保障。&nbsp;
+            sup.colored-text.quote ”
+          
+            
+            

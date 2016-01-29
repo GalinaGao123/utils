@@ -1,0 +1,39 @@
+extends ../../common/html/layout
+
+block content
+  .area-inner
+    .news-wrap
+      .news-control
+        a(href='#').colored-text.back < 返回
+        a(href='#').colored-text.next 下一篇 >
+        a(href='#').colored-text.prev < 上一篇
+      .news-box
+        h1.news-title.colored-text
+          | CFA 协会中国正式成立
+          br
+          | 重申对中国长期承诺并致力促进中国金融市场稳定发展
+        .news-subtitle.colored-text
+          | 中国经济长远发展需金融专才作有力支持
+          br
+          | 中国已成为CFA
+          sup &reg;
+          | 高增长市场，协会新设北京办公室支持国内日益增长的会员及考生需求
+        .news-image
+          img(src='http://placehold.it/960x480' alt="cfa")
+
+        - var n = 0;
+        while n++ < 5
+          p.
+            2015年10月12日，北京 ———— 今天，全球投资专业人士组成的会员组织CFA协会（CFA INSTITUTE）宣布正式成立
+            其北京办公室，旨在继续在中国投入更多资源，为国内数量日益增长的会员及考生提供充分的支持。CFA协会将继续
+            践行对全球投资行业的承诺，致力于为金融从业者订立教育、职业道德和专业素质的最高标准，这些都将有助于进一步
+            提高国内金融市场诚信度，加强投资者信心，为金融行业的稳定发展作出积极贡献。
+
+        a.button.colored-bg(href='#')
+          .icon.download
+          | 下载了解更多资讯
+
+      .news-control
+        a(href='#').colored-text.back < 返回
+        a(href='#').colored-text.next 下一篇 >
+        a(href='#').colored-text.prev < 上一篇

@@ -1,0 +1,17 @@
+mixin pagination()
+  .pagination
+    .control
+      a.item.colored-text.prev(href='#') <
+      a.item.colored-text(href='#') 1
+      a.item.colored-text(href='#') 2
+      a.item.colored-text(href='#') 3
+      a.item.colored-text(href='#') 4
+      a.current.item.colored-text(href='#') 5
+      a.item.colored-text(href='#') 6
+      a.item.colored-text(href='#') 7
+      a.item.colored-text(href='#') 8
+      a.item.colored-text.next(href='#') >
+    form(action='/zh-cn/news-insights/pressroom').goto
+      span.text 跳转到
+      input(type='text' name='page')
+      input.btn(type='submit' value='>')

@@ -1,0 +1,30 @@
+mixin news-item()
+  .news-item
+    .img-holder.responsive-img
+      img.desktop(src='http://placehold.it/720x500?text=desktop' alt="cfa")
+      img.mobile(src='http://placehold.it/800x400?text=mobile' alt="cfa")
+    .text-holder
+      .title.colored-text CFA协会中国正式成立
+      .brief 2015.10.12，北京 - 今天，全球投资专业人士组成的会员组织,今天，全球投资专业人士组成的会员组织
+      a.button.colored-btn(href='#') 阅读更多 >
+
+mixin news-item-simple()
+  .news-item.simple
+    .text-holder
+      .title.colored-text CFA协会中国正式成立
+      .brief.
+        2015.10.12，北京 - 今天，全球投资专业人士组成的会员组织CFA协会（CFA INSTITUTE）宣布正式成立其北京办公室，旨在继续在中国
+        投入更多资源,今天，全球投资专业人士组成的会员组织CFA协会（CFA INSTITUTE）宣布正式成立其北京办公室，旨在继续在中国
+        投入更多资源
+      a.button.colored-btn(href='#') 阅读更多 >
+
+mixin news-item-date()
+  .news-item.date
+    .img-holder.responsive-img
+      img.desktop(src='http://placehold.it/720x500?text=desktop' alt="cfa")
+      img.mobile(src='http://placehold.it/800x400?text=mobile' alt="cfa")
+    .text-holder
+      .title.colored-text CFA协会中国正式成立
+      .date.colored-text 2015年12月20日，周日
+      .brief 2015.10.12，北京 - 今天，全球投资专业人士组成的会员组织,今天，全球投资专业人士组成的会员组织
+      a.button.colored-btn(href='#') 阅读更多 >

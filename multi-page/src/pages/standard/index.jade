@@ -1,0 +1,44 @@
+extends ../../common/html/layout
+
+block content
+  h1.display-none cfa
+  +banner-slider()
+  
+  +color-block('至高<br>标准')(class='standard opposite')
+    .responsive-img
+      img.desktop(src='http://placehold.it/800x300' alt="cfa")
+      img.mobile(src='http://placehold.it/800x500' alt="cfa")
+    .content-wrap
+      p.
+        CFA致力于制定和管理守则、最佳实践准则和标准，为投资行业提供指导，这是CFA协会使命
+        的一项重要内容。这些标准有助于确保所有投资专业人士以客户利益为先。了解更多适用于
+        您的守则，运用他们来培养企业的信任和诚信环境。
+      p.
+        专业准则旨在维护和促进行业标准的采用，其中包括《全球投资业绩标准》(GIPS)、《CFA
+        协会道德操守和专业行为准则》，以及投资行业相关的多个自愿性专业行为标准。
+
+  +color-block('行业<br>准则')(class='rules')
+    - var n = 0;
+    while n++ < 4
+      .content-wrap
+        h3.colored-text 投资者利益为先
+        p.
+          虽然“投资者利益为先”这个理念简单明了，但在实践中确是困难重重，利益冲突比比皆是。
+          我们非常清楚这些挑战，并在探寻此方面的管理指导。《CFA协会道德操守和专业行为准则》
+          等表述清楚、立场客观的标准为我们提供了一个基础，有助于通过辩论和讨论以推动行业发展、
+          处理各种复杂问题。
+        a.button.colored-btn(href='#') 进一步了解 >
+
+  +color-block('其他<br>守则')(class='other opposite')
+    .responsive-img
+      img.desktop(src='http://placehold.it/720x360' alt="cfa")
+      img.mobile(src='http://placehold.it/800x500' alt="cfa")
+    .content-wrap
+      p 根据自己的业务领域，您还可以采用以下守则和准则：
+      ul.rule-list.colored-text
+        li 分析师/发行者准则
+        li 捐赠行为准则
+        li 养老金受托人行为准则
+        li 研究客观性标准
+        li 软美元准则
+        li 交易管理指南

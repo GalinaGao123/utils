@@ -1,0 +1,50 @@
+can-simplify(a, b)
+	if a == 1 && b == 1
+		return false
+	for i in min(a, b)..1
+		if (a % i == 0 && b % i == 0) && i != 1
+			return true
+	return false
+
+grid_build_col(max, type)
+	for i in 1..max
+		for j in 1..i
+			unless can-simplify(i, j)
+				.col.{type}-{j}-{i}
+					width		(100 * j / i)%
+	.col.{type}-show
+		display block
+	.col.{type}-hide
+		display none
+
+grid_build(break_points, types, max)
+	if length(break_points) > 0 && ((length(types) - 1) == length(break_points))
+		@media (max-width: break_points[0] - 1)
+			grid_build_col(max, shift(types))
+
+		for point, i in break_points
+			if point == last(break_points)
+				@media (min-width: point)
+					grid_build_col(max, shift(types))
+			else
+				@media (min-width: point) and (max-width: break_points[i+1] - 1)
+					grid_build_col(max, shift(types))
+
+
+grid_types = s m l
+grid_max_col = 12
+
+
+.grid
+	display		block
+	width		100%
+	clearfix()
+
+	.col
+		display block
+		float left
+		min-height 1px
+		&.right
+			float right
+
+	grid_build($break_points, grid_types, grid_max_col)

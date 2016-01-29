@@ -1,0 +1,78 @@
+@require '../../common/css/define'
+@require 'news-item'
+
+.publish.color-block
+  colored-block-with(#009966)
+  pagination(#009966)
+  background-color white
+  .color-block-title
+    +media_s()
+      min-height 0 !important
+    .contact
+      margin-top 20px
+      max-width 200px
+      +media_s()
+        display none
+      .label
+        font-size 22px
+        line-height 1.5em
+        font-weight normal
+      .name
+      .job
+      .tel
+      .email
+        font-size 18px
+        font-weight normal
+        line-height 1.5em
+      .email
+        display block
+        color white
+        text-decoration underline
+
+  .color-block-detail
+    .desktop-news
+      min-height 350px
+      +media_s()
+        display none
+
+    .mobile-news
+      display none
+      +media_s()
+        display block
+      .more-wrap
+        text-align center
+        margin 30px 0
+        .more
+          display inline-block
+          text-align center
+          cursor pointer
+          .arrow
+            width 15px
+            height @width
+            margin-bottom 10px
+            display inline-block
+            box-sizing border-box
+            border-right 2px solid #009966
+            border-bottom 2px solid #009966
+            transform rotate(45deg)
+
+      .contact
+        box-sizing border-box
+        padding 15px
+        border 1px solid #ededed
+        .label
+          font-size 20px
+          line-height 1.5em
+        .name
+        .job
+        .tel
+          font-size 14px
+          font-weight normal
+          line-height 1.5em
+        a
+          color inherit
+        .email
+          font-size 14px
+          display block
+          text-decoration underline
+          font-weight normal

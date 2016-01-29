@@ -1,0 +1,10 @@
+mixin color-block(title, more)
+  .color-block(class!=attributes.class)
+    .area-inner
+      .color-block-content
+        .color-block-title.colored-bg
+          h2.title!= title
+          if more
+            a(href="#").more= more
+        .color-block-detail
+          block

@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title All pages is here
+    style.
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+      }
+      .wrap {
+        max-width: 960px;
+        width: 90%;
+        margin: 0 auto;
+      }
+      .title {
+        font-size: 40px;
+        color: orchid;
+      }
+      .list {
+        list-style: square;
+        padding: 0 50px;
+        margin: 20px 0;
+      }
+      .list li {
+        margin: 10px 0;
+      }
+      .list li a {
+        text-decoration: none;
+        color: #808080;
+        transition: all .2s ease-in-out;
+      }
+      .list li a:hover {
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+      }
+  body
+    .wrap
+      h1.title CFA
+      hr
+      ul.list
+        each page in pages
+          li: a(href="#{page}.html")= page

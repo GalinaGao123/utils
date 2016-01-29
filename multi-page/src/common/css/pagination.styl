@@ -1,0 +1,65 @@
+pagination(color)
+  .pagination
+    clearfix()
+    height 30px
+    .control
+      float left
+      .item
+        display inline-block
+        width 30px
+        height @width
+        line-height @width
+        text-align center
+        margin-right 15px
+        text-decoration none
+        +media_m()
+          margin-right 5px
+        &:last-child
+          margin-right 0
+        &:hover
+        &.current
+          color white
+          background-color color
+        &.prev
+        &.next
+          color #161616
+          background-color #eee
+          &:hover
+            color white
+            background-color color
+    .goto
+      float right
+      height 30px
+      line-height @height
+      font-size 16px
+      .btn
+        display inline-block
+        width 30px
+        height @width
+        margin 0
+        padding 0
+        border none
+        text-align center
+        color #161616
+        background-color #eee
+        text-decoration none
+        &:hover
+          color white
+          background-color color
+      input
+        display inline-block
+        width 3em
+        height 30px
+        padding 0 0.5em
+        margin 0 1em
+        border 1px solid #eee
+        box-sizing border-box
+        outline none
+        text-align center
+        +media_m()
+          margin 0 5px 0 0
+          
+  html:lang(en)
+    .pagination
+      .goto
+        font-size 15px

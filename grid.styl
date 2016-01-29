@@ -1,0 +1,46 @@
+// grid building tool
+// 	stylus code
+
+
+can-simplify(a, b)
+	if a == 1 && b == 1
+		return false
+	for i in min(a, b)..1
+		if (a % i == 0 && b % i == 0) && i != 1
+			return true
+	return false
+
+build_col(max, type)
+	for i in 1..max
+		for j in 1..i
+			unless can-simplify(i, j)
+				.col-{type}-{j}-{i}
+					display		inline
+					float		left
+					width		(100 * j / i)%
+
+build(break_points, types, max)
+	if length(break_points) > 0 && ((length(types) - 1) == length(break_points))
+		@media (max-width: break_points[0] - 1)
+			build_col(max, shift(types))
+
+		for point, i in break_points
+			if point == last(break_points)
+				@media (min-width: point)
+					build_col(max, shift(types))
+			else
+				@media (min-width: point) and (max-width: break_points[i+1] - 1)
+					build_col(max, shift(types))
+
+
+break_points = 600px 1200px
+types = s m l
+max = 5
+
+
+.grid
+	display		block
+	width		100%
+	clearfix()
+
+	build(break_points, types, max)

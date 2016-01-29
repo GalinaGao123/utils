@@ -1,0 +1,75 @@
+@require '../../common/css/define'
+
+colored-block-with(#5b77cc)
+pagination(#5b77cc)
+.search-block
+  background-color #fcfcfc
+  margin-top 30px
+  form
+    position relative
+    input
+      border 1px solid #ededed
+      width 100%
+      height 45px
+      padding 0 44px
+      box-sizing border-box
+    img
+      position absolute
+      width 18px
+      top 50%
+      margin-top -9px
+      left 15px
+  p
+    font-size 14px
+    color #b9b9b9
+    margin-top 15px
+.search-results
+  .desktop-results
+    +media_s()
+      display none
+    .pagination
+      .goto
+        float left
+        margin-left 80px
+  .result
+    margin-bottom 40px
+    .title
+      font-size 25px
+      font-weight normal
+      margin 0
+      +media_s()
+        font-size 20px
+    .content
+      margin 10px 0
+  .mobile-results
+    display none
+    +media_s()
+      display block
+    .more-wrap
+      text-align center
+      margin 30px 0
+      .more
+        display inline-block
+        text-align center
+        cursor pointer
+        .arrow
+          width 15px
+          height @width
+          margin-bottom 10px
+          display inline-block
+          box-sizing border-box
+          border-right 2px solid #5b77cc
+          border-bottom 2px solid #5b77cc
+          transform rotate(45deg)
+  &.no-results
+    colored-block-with(#5c068c)
+    .info
+      font-size 20px
+      margin-bottom 0
+    .new-events
+      .news
+        font-size 30px
+        margin 0 0 20px 0
+        font-weight normal
+        +media_s()
+          font-size 20px

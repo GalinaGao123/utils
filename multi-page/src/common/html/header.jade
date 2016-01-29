@@ -1,0 +1,63 @@
+.header-container
+  .header-desktop
+    a.logo(href="/")
+      img(src="static/resources/images/logo.png" alt="cfa")
+    .language
+      a(href="#") EN
+    .search
+      img(src="static/resources/icons/search-black.png" alt="cfa")
+      form(action="" data-xss).search-box
+        input(type="search" name="" placeholder="请输入关键字")    
+    .menu
+      .item.about
+        .title 关于我们
+        .sub-menu
+          .sub-menu-item
+            a(href="association.html") CFA协会
+          .sub-menu-item
+            a(href="standard.html") 道德标准
+          .sub-menu-item
+            a(href="#") 最新动态
+      .item
+        .title CFA 观点
+      .item
+        .title CFA 认证
+      .item
+        .title 项目规划
+  .sub-menu-shadow  
+
+  .header-mobile
+    .menu-switch.icon
+    a.logo(href="/")
+      img(src="static/resources/images/logo.png" alt="cfa")
+    .search
+      .icon
+    .menu
+      .item.about
+        .title 关于我们
+        .sub-menu
+          .sub-menu-item
+            a(href="association.html") CFA协会
+          .sub-menu-item
+            a(href="standard.html") 道德标准
+          .sub-menu-item
+            a(href="#") 最新动态
+      .item
+        .title CFA 观点
+      .item
+        .title CFA 认证
+      .item
+        .title 项目规划
+      .item.lang
+        a(href="#") EN
+      .item.social
+        a(href="javascript:;")
+          .icon.weixin(style="background-image: url('static/resources/icons/wechat-footer.png')")
+        a(href="#", target="_blank")
+          .icon.weibo(style="background-image: url('static/resources/icons/sina-footer.png')")
+        a(href="#", target="_blank")
+          .icon.linkedin(style="background-image: url('static/resources/icons/in-footer.png')")
+    form(action="" data-xss).search-box-mobile
+      .search-bar.icon
+      input(type="search" name="key" placeholder="请输入关键字")
+      .clear-bar.icon

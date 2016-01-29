@@ -1,0 +1,44 @@
+@require '../../common/css/define'
+
+.standard
+  colored-block-with(#009966)
+  .content-wrap
+    border 1px solid #ededed
+
+.rules
+  colored-block-with(#003da5)
+  background-color #fcfcfc
+  .content-wrap
+    border 1px solid #ededed
+    background-color white
+    margin-bottom 30px
+    &:last-child
+      margin-bottom 0
+    +media_s()
+      text-align center
+    h3
+      font-size 25px
+
+.other
+  colored-block-with(#5b77cc)
+  .content-wrap
+    border 1px solid #ededed
+    border-top none
+  .rule-list
+    padding-left 0
+    margin 0
+    list-style none
+    li
+      line-height 1.5em
+      position relative
+      padding-left 25px
+      +media_s()
+        padding-left 15px
+        margin-left 10px
+      &:before
+        content "·"
+        font-size 30px
+        position absolute
+        left 0
+      a
+        color #003DA5

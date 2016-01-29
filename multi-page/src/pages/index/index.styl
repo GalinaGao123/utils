@@ -1,0 +1,147 @@
+@require '../../common/css/define'
+@require 'card'
+
+.news
+  colored-block-with(#009966)
+.comment
+  colored-block-with(#003da5)
+  background-color #fcfcfc
+  .card
+    .text-holder
+      .title
+        margin-bottom 0
+        +media_m()
+          margin-bottom 10px
+.about
+  colored-block-with(#5b77cc)
+  .intro
+    padding 30px
+    border 1px solid #ededed
+    +media_s()
+      padding 20px 15px
+  p
+    margin 0 0 25px 0
+  .info
+    text-align center
+    opacity 0
+    .num
+    p
+      margin 0
+      .big-size
+        font-weight bold
+        font-size 90px
+        margin-top 10px
+        +media_s()
+          font-size 50px
+          line-height 1.3em
+          margin-top 5px
+
+.area-outer
+  .identification.opposite
+    colored-block-with(#5c068c)
+    background-color #fcfcfc
+    .text-holder
+      .title
+        font-size 56px
+        line-height 0.9em
+        font-weight bold
+        margin-bottom 0
+        text-decoration none
+        +media_s()
+          font-size 28px
+      .subtitle
+        font-size 42px
+        line-height 0.9em
+        font-weight bold
+        +media_m()
+          display block
+        +media_s()
+          font-size 21px
+          margin-bottom 10px
+        a
+          text-decoration none
+      .content
+        +media_s()
+          height 4.5em
+          margin-bottom 10px
+      .reg
+        font-size 0.33em
+        vertical-align super
+        top -0.25em
+        font-weight 100
+
+.public-view
+  colored-block-with(#008ed6)
+  #public-view-slider
+    margin 0
+    border 1px solid #ededed
+    box-sizing border-box
+    .slick-dots
+      bottom 15px
+      margin 0
+      text-align left
+      padding-left 30px
+      box-sizing border-box
+      li
+        margin 0 6px 0 0
+        width 10px
+        height 10px
+        button
+          padding 0
+          width 10px
+          height 10px
+          &:before
+            content ""
+            width 10px
+            height 10px
+            border-radius 50%
+            background-color #a4a4a4
+        &.slick-active
+          button:before
+            background-color #707070
+      +media_s()
+        padding-left 0
+        text-align center
+    .item
+      clearfix()
+      outline 0
+      box-sizing border-box
+      padding-bottom 20px
+      .img-holder
+        img
+          width 100%
+      .text-holder
+        .person
+          .name
+            margin 0px
+            font-size 25px
+            +media_s()
+              font-size 20px
+          .job
+            margin 0 0 20px
+            font-size 22px
+            +media_s()
+              font-size 16px
+              margin-bottom 15px
+              display inline-block
+        .title
+          font-size 30px
+          margin-bottom 30px
+          +media_s()
+            font-size 20px
+            margin-bottom 15px
+        .words
+          line-height 1.5em
+          margin-bottom 25px
+          .quote
+            font-size 36px
+            top 0.3em
+            font-family 'Helvetica'
+            +media_s()
+              font-size 24px
+        &.content-wrap
+          padding 20px 30px 0px
+          +media_s()
+            padding 20px 15px 0
+
+@require 'en-fix'

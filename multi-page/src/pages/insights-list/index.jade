@@ -1,0 +1,21 @@
+include ../news-list/news-item
+extends ../../common/html/layout
+
+block content
+  h1.display-none cfa
+  +color-block('<span class="en-font-size">CFA</span><br>观点')(class='insights')
+    .desktop-news
+      - var n = 0;
+      while n++ < 10
+        if n === 2
+          +news-item-simple()
+        else
+          +news-item()
+
+      +pagination()
+
+    .mobile-news(data-api='http://119.9.78.69:8083/zh-cn/news-insights/pressroomapi')
+      .more-wrap
+        .more
+          .arrow
+          .colored-text 浏览更多

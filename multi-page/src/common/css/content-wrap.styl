@@ -1,0 +1,37 @@
+.content-wrap
+  box-sizing border-box
+  padding 30px
+  +media_s()
+    padding 15px
+  h2
+    font-weight normal
+  h3
+    font-size 25px
+    margin 0 0 20px 0
+    font-weight normal
+    +media_s()
+      margin 0 0 10px 0
+      font-size 25px
+  p
+    line-height 1.5em
+    margin 0 0 20px 0
+    +media_s()
+      margin 0 0 15px 0
+    &:last-child
+      margin-bottom 0
+  ul,
+  ol
+    margin 0 0 20px 0
+    line-height 1.5em
+    padding-left 1em
+    +media_s()
+      margin 0 0 15px 0
+    &:last-child
+      margin-bottom 0
+
+html:lang(en)
+  .content-wrap
+    h3
+      font-size 25px
+    p
+      font-size 15px

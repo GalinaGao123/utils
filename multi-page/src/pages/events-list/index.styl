@@ -1,0 +1,31 @@
+@require '../../common/css/define'
+@require '../news-list/news-item'
+
+.activity
+  colored-block-with(#5b77cc)
+  pagination(#5b77cc)
+  background-color white
+  .desktop-news
+    +media_s()
+      display none
+
+  .mobile-news
+    display none
+    +media_s()
+      display block
+    .more-wrap
+      text-align center
+      margin 30px 0
+      .more
+        display inline-block
+        text-align center
+        cursor pointer
+        .arrow
+          width 15px
+          height @width
+          margin-bottom 10px
+          display inline-block
+          box-sizing border-box
+          border-right 2px solid #5b77cc
+          border-bottom 2px solid #5b77cc
+          transform rotate(45deg)

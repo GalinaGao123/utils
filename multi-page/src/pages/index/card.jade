@@ -1,0 +1,35 @@
+mixin normal-card()
+  .card
+    a(href='#' target='_blank').img-holder.responsive-img
+      img.desktop(src="http://placehold.it/720x500" alt="cfa")
+      img.mobile(src='http://placehold.it/800x500' alt="cfa")
+    .text-holder
+      a(href='#').title.colored-text CFA协会中国正式成立
+      .content(truncate-text) 2015.09.28 － 在经济增速放缓的情况下，中国政府正进行深化金融体系改革,在经济增速放缓的情况下，中国政府正进行深化金融体系改革
+      a(href="#").button.colored-btn 阅读更多 >
+
+
+mixin subtitle-card()
+  .card(class!=attributes.class)
+    a(href='#' target='_blank').img-holder.responsive-img
+      img.desktop(src="http://placehold.it/720x600" alt="cfa")
+      img.mobile(src='http://placehold.it/800x500' alt="cfa")
+    .text-holder
+      a(href='#').title.colored-text.mobile-no-margin-bottom 2015年中国投资峰会
+      .subtitle.colored-text 张晓, CFA
+      .content(truncate-text) 2015.09.28 － 在经济增速放缓的情况下，中国政府正进行深化金融体系改革,中国政府正进行深化金融体系改革
+      a(href="#").button.colored-btn 阅读更多 >
+
+mixin no-image-card()
+  .card.no-image
+    .text-holder
+      a(href='#').title.colored-text
+        | CIPM
+        sup.reg &reg;
+      .subtitle.colored-text
+        a.colored-text(href="#") PROGRAM
+      .content(truncate-text)
+        | CIPM
+        sup.reg &reg;
+        | 课程能帮助投资者作出精准高效的投资决策，使投资价值最大化，并掌握风险评估能力使投资价值最大化，并掌握风险评估能力使投资价值最大化，并掌握风险评估能力使投资价值最大化，并掌握风险评估能力，是投资行业颇具权威的资质证明。
+      a(href="#").button.colored-btn 阅读更多 >

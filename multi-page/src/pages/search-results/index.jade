@@ -1,0 +1,44 @@
+extends ../../common/html/layout
+
+block content
+  h1.display-none cfa
+  .search-block
+    .area-inner
+      .content-wrap
+        form(action="" data-xss)
+          input(type="search" name="")
+          img(src="static/resources/icons/search-black.png" alt="cfa")
+        p 找到100条符合“经济”的搜索
+  .area-inner
+    .search-results
+      .content-wrap
+        .desktop-results
+          - var n = 0;
+          while n++ < 10
+            .result
+              h3.title
+                a.colored-text(href="#") 新闻和观点 | CFA观点 | 中国GDP将在十年内超过美国？
+              p.content 2011年，《
+                span.colored-text 经济
+                | 学人》杂志刊文称：“中国
+                span.colored-text 经济
+                | 真正超越美国指日可待。”据其推测， 这将最早于2018年发生。北大光华管理学院国际金融系教授...
+          +pagination()
+        
+        .mobile-results(data-api='http://119.9.78.69:8083/zh-cn/search/searchapi?keyword=的')
+          .more-wrap
+            .more
+              .arrow
+              .colored-text 浏览更多 
+    .search-results.no-results
+      .content-wrap
+        p.info 很抱歉，没有为您找到“xxx”的搜索结果。
+        p 您不妨尝试更换关键词，或浏览最新内容
+        .new-events
+          h2.news.colored-text 最新内容
+          - var n = 0;
+          while n++ < 3
+            .result
+              h3.title
+                a.colored-text(href="#") 新闻和观点 | CFA观点 | 中国GDP将在十年内超过美国？
+              p.content 2011年，《经济学人》杂志刊文称：“中国经济真正超越美国指日可待。”据其推测， 这将最早于2018年发生。北大光华管理学院国际金融系教授...

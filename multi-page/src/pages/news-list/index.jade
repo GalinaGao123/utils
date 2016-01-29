@@ -1,0 +1,39 @@
+include news-item
+extends ../../common/html/layout
+
+block content
+  h1.display-none cfa
+  .color-block.publish
+    .area-inner
+      .color-block-content
+        .color-block-title.colored-bg(style="min-height:365px;")
+          .title 新闻<br>发布
+            .contact
+              .label 媒体联系人：
+              .name 马立尧
+              .job 中国区市场部主任
+              .tel 010 5904 7811
+              a(href='mailto://Marina.Ma@cfainstitute.org').email Marina.Ma@cfainstitute.org
+        .color-block-detail
+          .desktop-news
+            - var n = 0;
+            while n++ < 10
+              if n === 2
+                +news-item-simple()
+              else
+                +news-item()
+
+            +pagination()
+
+          .mobile-news(data-api='http://119.9.78.69:8083/zh-cn/news-insights/pressroomapi')
+            .more-wrap
+              .more
+                .arrow
+                .colored-text 浏览更多
+
+            .contact.colored-text
+              .label 媒体联系人：
+              .name 马立尧
+              .job 中国区市场部主任
+              .tel 010 5904 7811
+              a.email(href='mailto://Marina.Ma@cfainstitute.org') Marina.Ma@cfainstitute.org

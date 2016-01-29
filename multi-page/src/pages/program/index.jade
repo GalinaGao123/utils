@@ -1,0 +1,129 @@
+extends ../../common/html/layout
+
+block content
+  h1.display-none cfa
+  +banner-slider()
+  
+  +color-block('黄金<br>标准')(class='gold opposite')
+    .responsive-img
+      img.desktop(src='http://placehold.it/720x360' alt="cfa")
+      img.mobile(src='http://placehold.it/800x500' alt="cfa")
+    .content-wrap
+      p.
+        被全球公认为投资行业“黄金标准”的CFA特许资格认证，令持证人在国际金融和投资行业竞争中
+        脱颖而出，成为世界级金融机构力争罗致的对象。CFA特许资格认证，即使卓越专业能力、更高
+        职业素养和诚信道德品质的综合鉴证，亦是每一位金融投资人驰骋职业道路的通行证。
+      p.
+        CFA课程，包含了您在职业生涯各阶段所需的概念和知识。它以学术理论与当前实践、道德操守
+        以及专业标准相结合的方式，为先进的投资分析和实际投资管理技能提供了强大的基础。
+
+  +color-block('名企<br>背书')(class='book')
+    .content-wrap
+      h3.colored-text 中国大陆CFA特许资格认证持有人就业统计，2014年6月
+      .chart-block
+        noscript 
+          style .chart-bg{display: none}
+          .responsive-img
+            img.desktop(src="http://placehold.it/600x300" alt="cfa")
+            img.mobile(src="http://placehold.it/750x300" alt="cfa")
+                  
+        - var chartList = [{info: '投资组合经理(机构/或个人投资者)',percent: '16.9%'},{info: '研究分析师',percent: '12.7%'},{info: '其他',percent: '6.9%'}, {info: '投资银行分析师',percent: '4.5%'},{info: '行政总裁/总裁',percent: '2.6%'},{info: '私人银行家交易员',percent: '0.7%'}]
+        each i in chartList
+          .chart-bg
+            span(text-desktop=i.info text-mobile=i.info.slice(0,3))
+            .chart-colored.colored-bg
+            .chart-percent.colored-text= i.percent
+        
+      h3.colored-text 为何选择CFA特许资格认证持有人
+      p.
+        每一天，我们都肩负着为客户、企业和全球社会创造远高于市场回报收益的使命。每一个决策和行动都
+        具有构建行业未来的潜力，也影响着所有依赖于我们的人。在当今复杂多变的全球金融环境中获得成功，
+        不仅需要广博的专业知识，卓越的资质技能、丰富的投资管理经验，还要求具有坚定的毅力，践行诚信
+        可靠的道德操守。
+      p.
+        自1947年起，我们一直致力于推进金融行业的全面职业化。如今，CFA INSTITUTE(CFA协会)已在
+        全球60个国家设135多个地方分会，将当地的金融市场领导者和专业人士与该职业建立联系。
+      p.
+        全球无数的企业都采用了我们的职业守则，并鼓励员工考取CFA特许资格认证。
+      p.
+        CFA特许资格认证已获得数十个国家行业监管机构的认可。
+      p.
+        每一天，我们都肩负着为客户、企业和全球社会创造远高于市场回报收益的使命。每一个决策和行动都
+        具有构建行业未来的潜力，也影响着所有依赖于我们的人。在当今复杂多变的全球金融环境中获得成功，
+        不仅需要广博的专业知识，卓越的资质技能、丰富的投资管理经验，还要求具有坚定的毅力，践行诚信
+        可靠的道德操守。
+      p.
+        自1947年起，我们一直致力于推进金融行业的全面职业化。如今，CFA INSTITUTE(CFA协会)已在
+        全球60个国家设135多个地方分会，将当地的金融市场领导者和专业人士与该职业建立联系。
+      p.
+        全球无数的企业都采用了我们的职业守则，并鼓励员工考取CFA特许资格认证。
+
+  +color-block('课程<br>详情')(class='detail opposite')
+    .content-wrap
+      h3.colored-text 课程内容
+      p CFA课程包括一级、二级和三级共三类考试：
+      ul
+        li 考试于每年六月第一个星期六在全球各地的考试中心举行一次。一级考试也会在12月举行。
+        li 考试必须依次通过。
+        li 考试仅以英文进行。
+      p 考试内容、学习重点的题目形式都会逐级变得复杂。
+      p.
+        我们将以道德和专业准则方面的课程内容为例，说明考试复杂程度的增加。每级考试的内容虽然
+        类似，但考生所面对的问题各有偏重：
+      ul
+        li 一级测试您的道德和专业准则知识。
+        li 二级测试您如何将标准应用于分析师所面临的情形。
+        li 三级测试您将如何将标准应用于投资组合管理和合规领域。
+      .responsive-img
+        img.desktop(src='http://placehold.it/800x500?text=desktop' alt="cfa")
+        img.mobile(src='http://placehold.it/800x500?text=mobile' alt="cfa")
+      h3.colored-text 考核重点
+      .content-wrap
+        h4.colored-text 一级课程
+        ul
+          li 考核重点：要求考生掌握投资工具和基础知识
+          li 共有240道多项选择题，设A、B和C三个选择，每道选择题分数均等
+          li 您需要妥善分配时间，每道题用约一分半钟时间作答
+          li 仔细阅读和理解每个问题，切勿只略读了部分即回答
+      .content-wrap
+        h4.colored-text 一级课程
+        ul
+          li 考核重点：要求考生掌握投资工具和基础知识
+          li 共有240道多项选择题，设A、B和C三个选择，每道选择题分数均等
+          li 您需要妥善分配时间，每道题用约一分半钟时间作答
+          li 仔细阅读和理解每个问题，切勿只略读了部分即回答
+      .content-wrap
+        h4.colored-text 一级课程
+        ul
+          li 考核重点：要求考生掌握投资工具和基础知识
+          li 共有240道多项选择题，设A、B和C三个选择，每道选择题分数均等
+          li 您需要妥善分配时间，每道题用约一分半钟时间作答
+          li 仔细阅读和理解每个问题，切勿只略读了部分即回答
+      a.button.colored-btn(href='#') 注册考试 >
+
+  +color-block('认证<br>优势')(class='advantage')
+    .responsive-img
+      img.desktop(src='http://placehold.it/720x360' alt="cfa")
+      img.mobile(src='http://placehold.it/800x500' alt="cfa")
+    .content-wrap
+      h3.colored-text 成为CFA特许资格认证持有人
+      p.
+        CFA特许资格认证持有人的道德操守及专业知识备受业界认可。成功通过三级考试的您
+        必须：拥有在投资界至少工作4年的工作经验；签署并承诺遵守CFA INSTITUTE(CFA协会)
+        《道德操守》和《专业行为准则》；以及申请加入CFA INSTITUTE(CFA协会)并成为
+        会员。这样您便可以获取CFA特许资格认证。
+      p.
+        此类以实践分析为基础的课程和道德操守已获得高度认可：
+      ul
+        li CFA课程已被纳入全球300多家商学院的课程安排。
+        li CFA证书常作为企业招聘的先决条件。
+      p 学习CFA课程，您可以：
+      ul
+        li 获得全球最大投资专家协会的会员身份。
+        li 通过在65个国家设立的140多个地方分会进入当地市场，获取专业知识。
+      p CFA课程的全球认可是指：
+      ul
+        li 多数监管机构提供执照考试豁免。
+        li 研究生院校提供入学考试豁免（如GMAT）。
+        li 多数金融和投资认证机构提供资格考试和继续教育方面的豁免。
+      a.button.colored-btn(href='#') 进一步了解 >

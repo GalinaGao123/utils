@@ -1,0 +1,24 @@
+doctype html
+html(lang='zh')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0")
+    meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
+    meta(name="keywords", content="key words goes here")
+    meta(name="description" content="description goes here")
+    title= pageName
+    link(rel='stylesheet', href='./static/css/libs.css')
+    link(rel='stylesheet', href='./static/css/common.css')
+    link(rel='stylesheet', href='./static/css/' + pageName + '.css')
+  body
+    include ./header
+    .page
+      .area-outer
+        include mixin/index
+        block content
+    include ./footer
+    include ./back-to-top
+    script(src='./static/js/libs.js')
+    script(src='./static/js/common.js')
+    script(src='./static/js/' + pageName + '.js')
+      

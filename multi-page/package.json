@@ -1,0 +1,29 @@
+{
+  "name": "cfa",
+  "version": "0.0.1",
+  "description": "cfa brand site",
+  "main": "gulpfile.js",
+  "private": true,
+  "dependencies": {
+    "browser-sync": "^2.9.11",
+    "fs-extra": "^0.24.0",
+    "glob": "^5.0.15",
+    "gulp": "^3.9.0",
+    "gulp-data": "^1.2.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.1.0",
+    "jade": "^1.11.0",
+    "nib": "^1.1.0",
+    "webpack": "^1.12.2",
+    "xss": "^0.2.10"
+  },
+  "scripts": {
+    "dev": "node_modules/.bin/gulp dev",
+    "build": "node_modules/.bin/gulp build",
+    "dist": "node_modules/.bin/gulp --gulpfile gulpfile.min.js"
+  },
+  "author": "Gasper Duan"
+}

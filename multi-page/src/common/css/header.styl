@@ -1,0 +1,280 @@
+.header-container
+  position fixed
+  top 0
+  width 100%
+  z-index 100
+  background-color white
+  box-shadow 0 1px 1px rgba(28,4,8,0.1)
+
+  a
+    color black
+
+  .sub-menu-shadow
+    height 50px
+    background-color #f5f5f5
+    max-width 1600px
+    margin 0 auto
+    display none
+    &.active
+      display block
+    +media_m()
+      margin-top 56px
+    +media_s()
+      display none
+  .header-desktop
+    clearfix()
+    box-sizing border-box
+    padding 0 30px
+    max-width 990px
+    width 100%
+    margin 0 auto
+    height 55px
+    font-size 16px
+    position relative
+    +media_m()
+      padding 0
+    +media_s()
+      display none
+    .logo
+      display block
+      float left
+      margin-top 10px
+      +media_m()
+        float none
+      img
+        height 36px
+        +media_m()
+          margin 0 auto 10px
+    .menu
+      clearfix()
+      float right
+      height 100%
+      +media_m()
+        float left
+      .item
+        float left
+        height 100%
+        position relative
+        text-align center
+        line-height 60px
+        &:hover
+          background-color #f5f5f5
+          .sub-menu
+            display block
+        .title
+          height 100%
+          cursor pointer
+          padding 0 1em
+          box-sizing border-box
+
+        .sub-menu
+          position absolute
+          top 100%
+          height 50px
+          line-height 50px
+          display none
+          background-color #f5f5f5
+          white-space no-wrap
+          &-item
+            display inline
+            padding 0
+            a
+              padding 0 0.999em
+
+    .search
+      float right
+      height 100%
+      width 20px
+      line-height 70px
+      padding 0 1em
+      cursor pointer
+      position relative
+      img
+        width 15px
+        position absolute
+        top 53%
+        margin-top -10px
+      &.active
+        background-color #f5f5f5
+        .search-box
+          display block
+      &:hover
+        background-color #f5f5f5
+      &-box
+        position absolute
+        top 100%
+        right 0
+        width 160px
+        height 50px
+        display none
+        input
+          width 100%
+          height 100%
+          box-sizing border-box
+          display block
+          border none
+          line-height 50px
+          padding 0 1em
+          margin 0
+          background-color #f5f5f5
+          color black
+          outline none
+          font-size 16px
+
+
+    .language
+      float right
+      height 100%
+      line-height 57px
+      font-size 17px
+      padding 0 1em
+      +media_m()
+        line-height 55px
+      &:hover
+        background-color #f5f5f5
+      &.fontsize16
+        a
+          font-size 16px
+
+
+  .header-mobile
+    display none
+    background-color #f5f5f5
+    height 55px
+    position relative
+    +media_s()
+      display block
+    .menu-switch
+      position absolute
+      top 50%
+      left 10px
+      width 15px
+      height @width
+      transform translateY(-50%)
+      background-image url('../resources/icons/menu.png')
+      &.active
+        background-image url('../resources/icons/menu-close.png')
+    .logo
+      margin 0
+      position absolute
+      top 50%
+      left 50%
+      transform translate(-50%, -50%)
+      img
+        height 36px
+    .search
+      width 20px
+      line-height 70px
+      cursor pointer
+      height 100%
+      position absolute
+      top 0
+      right 10px
+      .icon
+        width 15px
+        height @width
+        background-image url('../resources/icons/search-black.png')
+        position absolute
+        top 50%
+        margin-top -7.5px
+    .menu
+      position absolute
+      top 100%
+      width 100%
+      font-size 18px
+      display none
+      overflow-y auto
+      .item
+        position relative
+        width 100%
+        text-align center
+        line-height 64px
+        background-color white
+        border-bottom 1px solid grey
+        &:last-child
+          border-bottom none
+          box-shadow 0 1px 1px rgba(28,4,8,0.1)
+
+        .sub-menu
+          width 100%
+          display none
+          background-color #f5f5f5
+          font-size 18px
+          &-item
+            width 100%
+            height 60px
+            line-height 60px
+        &.social
+          a
+            display inline-block
+            margin 5px 23px 0
+            &:hover
+              text-decoration none
+            .weibo
+              height 24px
+              width 24px
+            .weixin
+              height 24px
+              width 24px
+            .linkedin
+              height 24px
+              width 24px
+        .title
+          height 60px
+          cursor pointer
+          &:after
+            content ''
+            height 10px
+            width 10px
+            background url('../resources/icons/plus.png') no-repeat center center
+            position absolute
+            top 25px
+            right 30px
+          &.active
+            font-weight bold
+            &:after
+              background-image url('../resources/icons/minus.png')
+        &.lang
+          height 60px
+    .search-box-mobile
+      display none
+      position absolute
+      top 100%
+      width 100%
+      height 70px
+      padding 0 30px
+      box-sizing border-box
+      background-color white
+      box-shadow 0 1px 1px rgba(28,4,8,0.1)
+      color #cdcdcd
+      z-index 100
+      &.active
+        display block
+      .search-bar
+        position absolute
+        left 30px
+        top 50%
+        background-image url('../resources/icons/search-grey.png')
+        transform translateY(-50%)
+        cursor pointer
+        width 20px
+        height 20px
+      .clear-bar
+        position absolute
+        right 30px
+        top 50%
+        background-image url('../resources/icons/search-close.png')
+        transform translateY(-50%)
+        width 20px
+        height 20px
+        cursor pointer
+      input
+        box-sizing border-box
+        width 100%
+        height 100%
+        border none
+        padding 0 2em
+        margin 0
+        outline none
+        font-size 20px
+        color #000

@@ -1,0 +1,78 @@
+@require '../../common/css/define'
+
+.gold
+  colored-block-with(#008ed6)
+  background-color #fcfcfc
+  .content-wrap
+    border 1px solid #ededed
+    border-top none
+    background-color white
+
+.book
+  colored-block-with(#5c068c)
+  .content-wrap
+    border 1px solid #ededed
+    background-color white
+    .chart-block
+      margin-bottom 30px
+      +media_s()
+        margin-bottom 10px
+      noscript
+        img
+          width 100%
+      .chart-bg
+        background-color #f9f8f8
+        width 100%
+        position relative
+        text-align right
+        line-height 1.5em
+        margin 5px 0
+        padding-right 15px
+        box-sizing border-box
+        font-size 14px
+        +media_s()
+          font-size 13px
+          padding-right 10px
+        span
+          z-index 10
+          &:after
+            content attr(text-desktop)
+            font-size 14px
+            +media_s()
+              content attr(text-mobile)
+        .chart-colored
+          position absolute
+          top 0
+          left 0
+          height 100%
+        .chart-percent
+          display none
+          position absolute
+          top 0
+          padding-left 10px
+          box-sizing border-box
+
+.detail
+  colored-block-with(#5b77cc)
+  background-color #fcfcfc
+  .content-wrap
+    border 1px solid #ededed
+    margin-bottom 20px
+    background-color white
+    &:last-child
+      margin-bottom 0
+    .responsive-img
+      margin-bottom 20px
+    h4
+      margin 0 0 20px 0
+      font-size 22px
+      font-weight normal
+      +media_s()
+        margin-bottom 10px
+        font-size 20px
+
+.advantage
+  colored-block-with(#003da5)
+  .content-wrap
+    border 1px solid #ededed
+    background-color white

@@ -1,0 +1,77 @@
+.card
+  clearfix()
+  margin-bottom 30px
+  box-sizing border-box
+  background-color white
+  border 1px solid #ededed
+  +media_s()
+    margin-bottom 10px
+  &:last-child
+    margin-bottom 0
+  .img-holder
+    width 50%
+    float right
+    display block
+    img
+      width 100%
+    +media_s()
+      float none
+      width 100%
+  .text-holder
+    width 50%
+    float right
+    padding 25px 30px 0 30px
+    box-sizing border-box
+    +media_m()
+      padding 20px 20px 0 20px
+    +media_s()
+      float none
+      width 100%
+      padding 15px 15px 20px
+    .title
+      font-size 25px
+      margin-bottom 10px
+      +media_m()
+        margin-bottom 10px
+      +media_s()
+        margin-bottom 5px
+        font-size 25px
+      &.mobile-no-margin-bottom
+        +media_s()
+          margin-bottom 0px
+    .subtitle
+      font-size 25px
+      margin-bottom 10px
+      +media_m()
+        display none
+      +media_s()
+        font-size 20px
+        margin-bottom 10px
+    .content
+      line-height 1.5em
+      max-height 3em
+      margin 20px 0
+      +media_m()
+        display none
+      +media_s()
+        display none
+&.opposite
+  .img-holder
+    float left
+  .text-holder
+    float left
+&.no-image
+  .text-holder
+    width 100%
+    float none
+    padding 25px 30px
+    .title
+      margin-bottom 5px
+    +media_m()
+      .content
+        display block
+    +media_s()
+      text-align center
+      padding 20px 30px
+      .content
+        display block
