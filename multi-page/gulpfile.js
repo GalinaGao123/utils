@@ -1,212 +1,157 @@
-var gulp = require('gulp'),
-    plumber = require('gulp-plumber'),
-    gulpJade = require('gulp-jade'),
-    jade = require('jade'),
-    stylus = require('gulp-stylus'),
-    rename = require('gulp-rename'),
-    data = require('gulp-data'),
-    nib = require('nib'),
-    glob = require('glob'),
-    webpack = require('webpack'),
-    bs = require('browser-sync').create(),
-    fse = require('fs-extra'),
-    fs = require('fs'),
-    path = require('path');
+'use strict'
 
+const gulp                 = require('gulp')
+const plumber              = require('gulp-plumber')
+const gulpPug              = require('gulp-pug')
+const less                 = require('gulp-less')
+const LessPluginAutoPrefix = require('less-plugin-autoprefix')
+const autoprefix           = new LessPluginAutoPrefix()
+const webpack              = require('webpack')
+const glob                 = require('glob')
+const path                 = require('path')
+const bs                   = require("browser-sync").create()
+const pug                  = require('pug')
 
-var Path = {
-  libs: {
-    css: path.join(__dirname, 'src/libs/css/index.styl'),
-    js: path.join(__dirname, 'src/libs/js/index.js')
-  },
-  common: {
-    css: path.join(__dirname, 'src/common/css/index.styl'),
-    js: path.join(__dirname, 'src/common/js/index.js')
-  },
-  pages: {
-    html: path.join(__dirname, 'src/pages/*/index.jade'),
-    css: path.join(__dirname, 'src/pages/*/index.styl'),
-    js: path.join(__dirname, 'src/pages/*/index.js')
-  },
-  resources: path.join(__dirname, 'src/resources/'),
-  dest: {
-    html: path.join(__dirname, 'build/'),
-    css: path.join(__dirname, 'build/static/css/'),
-    js: path.join(__dirname, 'build/static/js/'),
-    resources: path.join(__dirname, 'build/static/resources/')
-  }
-};
-
-var Watches = [
-  {
-    path: path.join(__dirname, 'src/libs/css/**/*.styl'),
-    task: ['libs-css', 'common-css', 'pages-css']
-  },
-  {
-    path: path.join(__dirname, 'src/common/html/**/*.jade'),
-    task: ['pages-html']
-  },
-  {
-    path: path.join(__dirname, 'src/common/css/**/*.styl'),
-    task: ['common-css', 'pages-css']
-  },
-  {
-    path: path.join(__dirname, 'src/pages/**/*.jade'),
-    task: ['pages-html']
-  },
-  {
-    path: path.join(__dirname, 'src/pages/**/*.styl'),
-    task: ['pages-css']
-  },
-  {
-    path: path.join(__dirname, 'src/**/*.js'),
-    task: ['js']
-  }
-];
+const isProd = process.env.NODE_ENV === 'production'
 
 
 
-// Compile libs
-gulp.task('libs-css', function() {
-  return gulp.src(Path.libs.css)
+
+gulp.task('html', () => {
+  return gulp.src('src/pug/*.pug', { base: 'src/pug' })
               .pipe(plumber())
-              .pipe(stylus())
-              .pipe(rename('libs.css'))
-              .pipe(gulp.dest(Path.dest.css));
-});
+              .pipe(gulpPug({ pretty: true }))
+              .pipe(gulp.dest('public'))
+})
 
-gulp.task('libs', ['libs-css']);
-
-
-// Compile common
-gulp.task('common-css', function() {
-  return gulp.src(Path.common.css)
-              .pipe(plumber())
-              .pipe(stylus({
-                use: [nib()],
-                import: ['nib']
+gulp.task('css', () => {
+  return gulp.src('src/less/*.less', { base: 'src/less' })
+              .pipe(plumber(function (err) {
+                console.log(err)
+                this.emit('end')
               }))
-              .pipe(rename('common.css'))
-              .pipe(gulp.dest(Path.dest.css));
-});
-
-gulp.task('common', ['common-css']);
-
-
-// Compile pages
-gulp.task('pages-html', function() {
-  return gulp.src(Path.pages.html)
-              .pipe(plumber())
-              .pipe(data(function(f) {
-                return {pageName: path.basename(path.dirname(f.path))};
+              .pipe(less({
+                plugins: [ autoprefix ],
+                compress: isProd
               }))
-              .pipe(gulpJade({
-                pretty: true
-              }))
-              .pipe(rename(function(filePath) {
-                filePath.basename = filePath.dirname;
-                filePath.dirname = '';
-              }))
-              .pipe(gulp.dest(Path.dest.html));
-});
+              .pipe(gulp.dest('public/css'))
+})
 
-gulp.task('pages-css', function() {
-  return gulp.src(Path.pages.css)
-              .pipe(plumber())
-              .pipe(stylus({
-                use: [nib()],
-                import: ['nib']
-              }))
-              .pipe(rename(function(filePath) {
-                filePath.basename = filePath.dirname;
-                filePath.dirname = '';
-              }))
-              .pipe(gulp.dest(Path.dest.css));
-});
+gulp.task('js', next => {
+  glob('src/js/*.js', { absolute: true }, (err, files) => {
+    if (err) { return next(err) }
 
-gulp.task('pages', ['pages-html', 'pages-css']);
+    webpack(getWebpackConfig(files), (err, states) => {
+      if (err) { return next(err) }
 
+      printWebpackStates(states)
+      next()
+    })
+  })
+})
 
-gulp.task('js', function(callback) {
-  glob(Path.pages.js, function(err, files) {
-    if (err) return callback(err);
+gulp.task('images', () => {
+  return gulp.src('src/images/**/*', { base: 'src' })
+              .pipe(gulp.dest('public'))
+})
 
-    var entry = {};
+gulp.task('compile', ['html', 'css', 'js', 'images'])
 
-    files.reduce(function(pre, cur){
-      var name = path.basename(path.dirname(cur));
-      return entry[name] = cur;
-    }, entry);
+gulp.task('watch', () => {
+  gulp.watch('src/pug/**/*'   , ['html'])
+  gulp.watch('src/less/**/*'  , ['css'])
+  gulp.watch('src/js/**/*'    , ['js'])
+  gulp.watch('src/images/**/*', ['images'])
+})
 
-    entry['libs'] = Path.libs.js;
-    entry['common'] = Path.common.js;
-
-    webpack({
-      entry: entry,
-      output: {
-        path: Path.dest.js,
-        filename: '[name].js'
-      }
-    }).run(function(err, stats) {
-      if (err) return callback(err);
-
-      console.log(stats.toString({
-        colors: true,
-        chunkModules: false
-      }));
-      callback();
-    });
-  });
-});
-
-
-// symlink the resources
-gulp.task('resources', function(callback) {
-  fse.ensureDirSync('build/static');
-  fs.stat('build/static/resources', function(err, stat) {
-    if (err && err.code === 'ENOENT'){
-      fs.symlinkSync('../../src/resources', 'build/static/resources');
-    }
-    callback();
-  });
-});
-
-
-gulp.task('watch', function() {
-  Watches.forEach(function(cur) {
-    gulp.watch(cur.path, cur.task);
-  });
-});
-
-
-gulp.task('server', function() {
+gulp.task('server', ['compile', 'watch'], () => {
   bs.init({
-    server: 'build',
-    files: 'build/**/*',
-    open: false,
-    middleware: function(req, res, next) {
-      if(req.url === '/all') {
-        glob(Path.pages.html, function(err, files) {
-          if (err) {
-            res.end(err);
-          }else {
-            res.end(jade.renderFile(path.join(__dirname, 'all-template.jade'), {
-              pages: files.map(function(filename) {
-                return path.basename(path.dirname(filename));
-              })
-            }));
-          }
-        });
-      }else {
-        next();
-      }
+    files: 'public/**/*',
+    server: {
+      baseDir: 'public',
+      middleware: renderIndexPage
     }
-  });
-});
-
-
-gulp.task('build', ['libs', 'common', 'pages', 'js', 'resources']);
+  })
+})
 
 
 
-gulp.task('dev', ['build', 'watch', 'server']);
+
+function getWebpackConfig(files) {
+  const config = {
+    entry: files.reduce((entry, file) => {
+      entry[path.parse(file).name] = file
+
+      return entry
+    }, new Object()),
+
+    output: {
+      path: path.resolve(__dirname, 'public/js'),
+      filename: '[name].js'
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['latest', { 'es2015': { modules: false } }]
+            ]
+          }
+        }
+      ]
+    },
+
+    resolve: {
+      modules: [
+        path.resolve(__dirname, 'src/js'),
+        'node_modules'
+      ],
+      extensions: ['.js']
+    }
+  }
+
+  if (isProd) {
+    config.plugins = [
+      new webpack.optimize.UglifyJsPlugin({
+        beautify: false,
+        mangle: {
+          screw_ie8: true,
+          keep_fnames: true
+        },
+        compress: {
+          screw_ie8: true,
+          warnings: false
+        },
+        comments: false
+      })
+    ]
+  }
+
+  return config
+}
+
+function printWebpackStates(states) {
+  console.log(states.toString({
+    colors: true,
+    chunks: false
+  }))
+}
+
+function renderIndexPage(req, res, next) {
+  if (req.url === '/') {
+    glob('src/pug/*.pug', (err, files) => {
+      if (err) { return next(err) }
+
+      const html = pug.renderFile(path.resolve(__dirname, 'index.pug'), {
+        files: files.map(file => path.parse(file).name)
+      })
+
+      res.end(html)
+    })
+  } else {
+    next()
+  }
+}
